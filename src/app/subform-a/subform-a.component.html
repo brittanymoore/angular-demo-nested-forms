@@ -1,0 +1,18 @@
+<h2>My Subform A</h2>
+
+Is valid: {{group.valid}}
+
+<div [formGroup]="group">
+    <div class="form-group">
+        <label>Control 1</label>
+        <input type="text" formControlName="control1" />
+    </div>
+    <div class="form-group">
+        <label>Control 2</label>
+        <input type="text" formControlName="control2" />
+    </div>    
+</div>
+
+<div class="buttons" *ngIf="showButtons">
+    <button type="button" (click)="onSave()">Subform A Click</button>
+</div>

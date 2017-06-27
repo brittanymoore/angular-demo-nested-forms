@@ -1,0 +1,12 @@
+.vscode
+node_modules
+npm-debug.log
+yarn.lock
+
+dev
+dist
+
+/src/**/*.js
+/src/**/*.map
+/src/**/*.ngfactory.ts
+/src/**/*.css.shim.ts
