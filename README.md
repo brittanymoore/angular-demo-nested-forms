@@ -12,7 +12,7 @@ ensuring the following:
 
 ```
 git clone https://github.com/brittanymoore/angular-demo-nested-forms.git
-cd angular-seed
+cd angular-demo-nested-forms
 npm install
 ```
 
