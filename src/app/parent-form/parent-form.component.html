@@ -7,9 +7,9 @@ Is valid: {{myForm.valid}}
     <div>
         <label>Remove Child Form A: <input type="checkbox" formControlName="hideA" /></label>
     </div>
-    <child-form-a [parentForm]="myForm.controls.subformA" *ngIf="!myForm.value.hideA"></child-form-a>
+    <child-form-a *ngIf="!myForm.value.hideA"></child-form-a>
     
-    <child-form-b [parentForm]="myForm.controls.subformB"></child-form-b>
+    <child-form-b></child-form-b>
 
     <button type="submit" [disabled]="!myForm.valid">Submit</button>
 
