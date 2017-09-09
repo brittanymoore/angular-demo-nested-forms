@@ -1,7 +1,7 @@
 {
     "name": "angular-demo-nested-forms",
     "version": "1.0.0",
-    "description": "Demo of nested reactive form components in Angular.",
+    "description": "Demo: split a reactive form into multiple subcomponents with loose coupling.",
     "author": "Brittany Moore <brittanymoore>",
     "license": "MIT",
     "repository": {
