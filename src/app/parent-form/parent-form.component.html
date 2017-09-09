@@ -1,0 +1,16 @@
+<h1>Parent Form</h1>
+
+Is valid: {{myForm.valid}}
+
+<form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit(myForm)">
+
+    <div>
+        <label>Remove Child Form A: <input type="checkbox" formControlName="hideA" /></label>
+    </div>
+    <child-form-a [parentForm]="myForm.controls.subformA" *ngIf="!myForm.value.hideA"></child-form-a>
+    
+    <child-form-b [parentForm]="myForm.controls.subformB"></child-form-b>
+
+    <button type="submit" [disabled]="!myForm.valid">Submit</button>
+
+</form>

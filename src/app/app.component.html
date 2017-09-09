@@ -1,12 +1,1 @@
-<h1>My Form</h1>
-
-Is valid: {{myForm.valid}}
-
-<form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit(myForm)">
-
-    <subform-a [group]="myForm.controls.subformA" [showButtons]="false"></subform-a>
-    <subform-b [group]="myForm.controls.subformB"></subform-b>
-
-    <button type="submit" [disabled]="!myForm.valid">Submit</button>
-
-</form>
+<parent-form></parent-form>

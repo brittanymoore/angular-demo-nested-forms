@@ -3,8 +3,12 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
-import { SubformAComponent } from './subform-a/subform-a.component';
-import { SubformBComponent } from './subform-b/subform-b.component';
+
+import { ParentFormComponent } from './parent-form/parent-form.component';
+import { ChildFormAComponent } from './child-form-a/child-form-a.component';
+import { ChildFormBComponent } from './child-form-b/child-form-b.component';
+
+import { FormComponentService } from './form-component.service';
 
 @NgModule({
     imports: [
@@ -13,10 +17,11 @@ import { SubformBComponent } from './subform-b/subform-b.component';
     ],
     declarations: [
         AppComponent,
-        SubformAComponent,
-        SubformBComponent
+        ParentFormComponent,
+        ChildFormAComponent,
+        ChildFormBComponent
     ],
-    providers: [ ],
+    providers: [ FormComponentService ],
     bootstrap: [ AppComponent ]
 })
 export class AppModule { }
