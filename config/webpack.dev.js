@@ -45,7 +45,7 @@ module.exports = webpackMerge(common.config, {
         }),
 
         new webpack.ContextReplacementPlugin(
-            /angular(\\|\/)core(\\|\/)@angular/,
+            /(.+)?angular(\\|\/)core(.+)?/,
             SOURCE_PATH,
             {}
         )
