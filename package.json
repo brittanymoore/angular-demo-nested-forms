@@ -11,7 +11,8 @@
     "scripts": {
         "build": "webpack --env=dev --progress --profile --colors",
         "lint": "tslint -c ./config/tslint.json --type-check 'src/**/*.ts' -p ./tsconfig.json",
-        "start": "webpack-dev-server --env=dev --open --progress"
+        "start": "webpack-dev-server --env=dev --open --progress",
+        "test": "karma start ./config/karma.conf.js"
     },
     "dependencies": {
         "@angular/animations": "^4.4.0-RC.0",
@@ -32,6 +33,7 @@
     "devDependencies": {
         "@ngtools/webpack": "^1.6.2",
         "@types/node": "^8.0.28",
+        "@types/jasmine": "^2.8.6",
         "angular-router-loader": "^0.6.0",
         "angular2-template-loader": "^0.6.2",
         "awesome-typescript-loader": "^3.2.3",
@@ -39,6 +41,15 @@
         "css-loader": "^0.28.7",
         "exports-loader": "^0.6.4",
         "html-webpack-plugin": "^2.30.1",
+        "jasmine": "^2.8.0",
+        "jasmine-core": "^2.8.0",
+        "karma": "^1.7.1",
+        "karma-chrome-launcher": "^2.2.0",
+        "karma-coverage": "^1.1.1",
+        "karma-jasmine": "^1.1.0",
+        "karma-sourcemap-loader": "^0.3.7",
+        "karma-spec-reporter": "^0.0.31",
+        "karma-webpack": "^2.0.5",
         "raw-loader": "^0.5.1",
         "sass-loader": "^6.0.6",
         "tslint": "^5.7.0",
