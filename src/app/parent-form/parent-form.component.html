@@ -2,14 +2,14 @@
 
 Is valid: {{myForm.valid}}
 
-<form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit(myForm)">
+<form [formGroup]="myForm" novalidate (ngSubmit)="onSubmit()">
 
     <div>
         <label>Remove Child Form A: <input type="checkbox" formControlName="hideA" /></label>
     </div>
-    <child-form-a *ngIf="!myForm.value.hideA"></child-form-a>
+    <child-form-a [parent]="name" *ngIf="!myForm.value.hideA"></child-form-a>
     
-    <child-form-b></child-form-b>
+    <child-form-b [parent]="name"></child-form-b>
 
     <button type="submit" [disabled]="!myForm.valid">Submit</button>
 

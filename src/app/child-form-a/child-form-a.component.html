@@ -4,6 +4,9 @@ Is valid: {{form.valid}}
 
 <div [formGroup]="form">
     <div>
+        <label>Remove Grandchild Form: <input type="checkbox" formControlName="hideGrandchild" /></label>
+    </div>
+    <div>
         <label>Control 1</label>
         <input type="text" formControlName="control1" />
     </div>
@@ -11,4 +14,5 @@ Is valid: {{form.valid}}
         <label>Control 2</label>
         <input type="text" formControlName="control2" />
     </div>    
+    <grandchild-form-a [parent]="name" *ngIf="!form.value.hideGrandchild"></grandchild-form-a>
 </div>

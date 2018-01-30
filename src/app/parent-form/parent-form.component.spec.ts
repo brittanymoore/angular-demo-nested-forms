@@ -4,7 +4,7 @@ import { async, TestBed, ComponentFixture } from '@angular/core/testing';
 import { ParentFormComponent } from './parent-form.component';
 import { ChildFormAComponent } from '../child-form-a/child-form-a.component';
 import { ChildFormBComponent } from '../child-form-b/child-form-b.component';
-import { GrandchildFormComponent } from '../grandchild-form/grandchild-form.component';
+import { GrandchildFormComponent } from '../grandchild-form-a/grandchild-form-a.component';
 
 describe('ParentFormComponent', () => {
   let component: ParentFormComponent;
@@ -42,14 +42,14 @@ describe('ParentFormComponent', () => {
 
     it('should be invalid due to grandchild', () => {
       const childFormA = component.myForm.controls['child-form-a'] as FormGroup;
-      expect(childFormA.controls['grandchild-form'].valid).toBe(false);
+      expect(childFormA.controls['grandchild-form-a'].valid).toBe(false);
     });
 
     it('should become valid when child and self are valid', () => {
       const childFormA = component.myForm.controls['child-form-a'] as FormGroup;
-      childFormA.patchValue({ control1: 'foo', 'grandchild-form': { control5: 'foo' }});
+      childFormA.patchValue({ control1: 'foo', 'grandchild-form-a': { control5: 'foo' }});
       fixture.detectChanges();
-      expect(childFormA.controls['grandchild-form'].valid).toBe(true);
+      expect(childFormA.controls['grandchild-form-a'].valid).toBe(true);
       expect(childFormA.valid).toBe(true);
     });
 
@@ -79,14 +79,14 @@ describe('ParentFormComponent', () => {
 
     it('should keep grandchild values after removal', () => {
       const childFormA = component.myForm.controls['child-form-a'] as FormGroup;
-      childFormA.patchValue({ 'grandchild-form': { control5: 'foo' }});
+      childFormA.patchValue({ 'grandchild-form-a': { control5: 'foo' }});
       fixture.detectChanges();
       childFormA.patchValue({ hideGrandchild: true });
       fixture.detectChanges();
       childFormA.patchValue({ hideGrandchild: false });
       fixture.detectChanges();
-      expect(childFormA.controls['grandchild-form']).toBeDefined();
-      expect(childFormA.controls['grandchild-form'].value.control5).toBe('foo');
+      expect(childFormA.controls['grandchild-form-a']).toBeDefined();
+      expect(childFormA.controls['grandchild-form-a'].value.control5).toBe('foo');
     });
   });
 });

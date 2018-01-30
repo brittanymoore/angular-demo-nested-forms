@@ -1,24 +1,28 @@
-import { AbstractControl } from '@angular/forms/src/model';
-
-import { Subject } from 'rxjs/Subject';
-import { Observable } from 'rxjs/Observable';
-
-import { ControlData } from './control-data.class';
+import { AbstractControl, FormGroup } from '@angular/forms';
 
 export class FormComponentService {
 
-    private controlAddSource: Subject<ControlData> = new Subject<ControlData>();
-    private controlRemoveSource: Subject<string> = new Subject<string>();
+    private forms: any = {};
+    private cachedData: any = {};
 
-    public controlAdd$: Observable<ControlData> = this.controlAddSource.asObservable();
-    public controlRemove$: Observable<string> = this.controlRemoveSource.asObservable();
-
-    public addControl(name: string, control: AbstractControl) {
-        this.controlAddSource.next(new ControlData(name, control));
+    public registerRootForm(form: FormGroup, name: string): void {
+        this.forms[name] = form;
+        this.cachedData[name] = {};
     }
 
-    public removeControl(name: string) {
-        this.controlRemoveSource.next(name);
+    public addControl(name: string, control: FormGroup, parent: string): void {
+        this.forms[name] = control;
+        this.forms[parent].addControl(name, control as AbstractControl);
+        if (!this.cachedData[name]) {
+            this.cachedData[name] = {};
+        }
+        this.forms[name].patchValue(this.cachedData[name]);
+    }
+
+    public removeControl(name: string, parent: string): void {
+        this.cachedData[name] = this.forms[name].value;
+        this.forms[parent].removeControl(name);
+        this.forms[name] = null;
     }
 
 }

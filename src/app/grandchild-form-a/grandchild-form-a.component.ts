@@ -4,13 +4,13 @@ import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 import { FormComponentService } from './../form-component.service';
 
 @Component({
-    selector: 'child-form-b',
-    templateUrl: './child-form-b.component.html'
+    selector: 'grandchild-form-a',
+    templateUrl: './grandchild-form-a.component.html'
 })
-export class ChildFormBComponent implements OnInit, OnDestroy {
+export class GrandchildFormComponent implements OnInit, OnDestroy {
 
     public form: FormGroup;
-    public name: string = 'child-form-b';
+    public name: string = 'grandchild-form-a';
     @Input() public parent: string;
 
     constructor(private fb: FormBuilder, private componentService: FormComponentService) {}
@@ -20,8 +20,7 @@ export class ChildFormBComponent implements OnInit, OnDestroy {
             throw new Error('Child form must receive parent value.');
         }
         this.form = this.fb.group({
-            control3: [ 'test3', [ Validators.required ]],
-            control4: [ 'test4', [ Validators.required ]]
+            control5: [ '', [ Validators.required ]]
         });
         this.componentService.addControl(this.name, this.form, this.parent);
     }
